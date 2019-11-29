@@ -30,6 +30,27 @@ void Astronaut::setup(string file) {
     
 }
 
+
+void Astronaut::setup(ofFbo file) {
+    posX = ofRandom(0, ofGetWindowWidth());
+    posY = ofRandom(0, ofGetWindowHeight());
+    rot = ofRandom(0, 360);
+    fX = ofRandom(-4, 4);
+    fY = ofRandom(-4, 4);
+    
+    fR = ofRandom(-2, 2);
+    
+    timeToLive = ofRandom(24 * 60 * 2, 24 * 60 * 10);
+    
+    astroboy.allocate(width, height);
+    ofImage im;
+    in = file.getTexture();
+    mask.load("astro_mask.png");
+    overlay.load("astro_overlay.png");
+    
+    
+}
+
 void Astronaut::update() {
     posX = posX + fX;
     posY = posY + fY;

@@ -124,7 +124,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     
-    if(key == ' ') {
+    if(key == 'a') {
         Astronaut a;
         ofPixels t;
         f.readToPixels(t);
@@ -142,6 +142,30 @@ void ofApp::keyPressed(int key){
         
         
         a.setup(fileName);
+        astros.push_back(a);
+    }
+    if(key==' ') {
+        Astronaut a;
+        ofPixels t;
+        f.readToPixels(t);
+        
+        ofImage img;
+        img.setFromPixels(t);
+        img.crop(pos->x, pos->y, size->x, size->y);
+        img.resize(a.width, a.height);
+        string fileName = ofToDataPath("in/temp-"+ofGetTimestampString()+".png", true);
+        
+        //        string fileName = "in/temp-" + ofToString(count) + ".png";
+//        img.save(fileName);
+        
+        count+=1;
+        ofFbo temp;
+        temp.allocate(a.width, a.height);
+        temp.begin();
+        img.draw(0, 0);
+        temp.end();
+        
+        a.setup(temp);
         astros.push_back(a);
     }
     else if(key == 'c') {

@@ -14,6 +14,7 @@
 class Astronaut {
 public:
     void setup(string file);
+    void setup(ofFbo file);
     void update();
     void draw();
     
