@@ -8,6 +8,8 @@ void ofApp::setup(){
         astros.push_back(a);
     }
     
+    ofSetFrameRate(12);
+    
     overlay.load("astro_overlay.png");
 
     f.allocate(ofGetWidth(), ofGetHeight());
