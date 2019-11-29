@@ -133,7 +133,9 @@ void ofApp::keyPressed(int key){
         img.setFromPixels(t);
         img.crop(pos->x, pos->y, size->x, size->y);
         img.resize(a.width, a.height);
-        string fileName = "in/temp-" + ofToString(count) + ".png";
+        string fileName = ofToDataPath("in/temp-"+ofGetTimestampString()+".png", true);
+
+//        string fileName = "in/temp-" + ofToString(count) + ".png";
         img.save(fileName);
         
         count+=1;

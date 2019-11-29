@@ -12,8 +12,8 @@ void Astronaut::setup(string file) {
     posX = ofRandom(0, ofGetWindowWidth());
     posY = ofRandom(0, ofGetWindowHeight());
     rot = ofRandom(0, 360);
-    fX = ofRandom(-2, 2);
-    fY = ofRandom(-2, 2);
+    fX = ofRandom(-4, 4);
+    fY = ofRandom(-4, 4);
     
     fR = ofRandom(-2, 2);
     
